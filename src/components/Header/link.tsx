@@ -1,26 +1,16 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 const HeaderLink = () => {
   const { data: session, status } = useSession();
-
   if (status === "loading") {
     return null;
   }
   return (
     <>
-      {session?.user ? (
-        <button
-          className="cursor-pointer bg-gray-200 hover:bg-[#FFECB3] w-[100px] flex items-center justify-center py-3 
-          rounded-full relative z-[4]
-          transition-all duration-300"
-          onClick={() => signOut()}
-        >
-          Logout
-        </button>
-      ) : (
+      {!session?.user && (
         <div className="rounded-full relative flex bg-gray-200 text-sm md:text-base">
           <Link
             className="w-[75px] md:w-[100px] flex items-center justify-center py-3 
@@ -62,3 +52,12 @@ const Button = ({ href, className }: { href: string; className?: string }) => {
     </Link>
   );
 };
+
+// <button
+//   className="cursor-pointer bg-gray-200 hover:bg-[#FFECB3] w-[100px] flex items-center justify-center py-3
+//   rounded-full relative z-[4]
+//   transition-all duration-300"
+//   onClick={() => signOut()}
+// >
+//   Logout
+// </button>
