@@ -2,7 +2,7 @@ import React from "react";
 
 const MemberShip = () => {
   return (
-    <div className="bg-secondary text-white h-fit w-80 p-4 rounded-2xl shadow-lg shadow-black">
+    <div className="bg-secondary text-white h-fit md:w-80 p-4 rounded-2xl shadow-lg shadow-black">
       <h1 className="text-4xl font-extrabold text-primary">
         Exclusive Memebership
       </h1>

@@ -35,69 +35,73 @@ const Form = () => {
     }
   };
   return (
-    <div className="flex items-center gap-8 bg-white/90 px-10 py-16 rounded-2xl shadow-lg w-fit my-auto">
-      <div className="flex flex-col items-center min-w-80">
-        <p className="font-extrabold text-3xl mb-8">LOGIN</p>
-        <form onSubmit={handleSubmit} className="w-full">
-          <Input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            label="E-MAIL"
-            placeholder="email@gmail.com"
-            className="mb-8"
-          />
-          <Input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            label="PASSWORD"
-            type="password"
-            className="mb-14 flex"
-          />
-          <MainButton
-            type="submit"
-            label="Log In"
-            disabled={disabled || isLoading}
-            isLoading={isLoading}
-          />
-        </form>
-      </div>
-      <div>
-        <div className="bg-primary rounded-2xl p-22 mb-8 shadow-lg shadow-black/50">
-          <p className="text-3xl">Something</p>
-        </div>
-        <h2 className="font-extrabold text-6xl">Thank you</h2>
-        <h4 className="text-primary font-extrabold text-2xl">
-          Welcome to join us
-        </h4>
-      </div>
-    </div>
-    // <div className="flex flex-col items-center bg-white/70 py-16 px-10 rounded-2xl shadow-lg w-96">
-    //   <p className="font-extrabold text-3xl mb-8">LOG IN</p>
-    //   {/* <p className="font-bold w-full">E-MAIL</p> */}
-    //   <form onSubmit={handleSubmit} className="w-full">
-    //     <Input
-    //       value={email}
-    //       onChange={(e) => setEmail(e.target.value)}
-    //       label="E-MAIL"
-    //       placeholder="email@gmail.com"
-    //       className="mb-8"
-    //     />
-    //     {/* <p className="font-bold w-full">PASSWORD</p> */}
-    //     <Input
-    //       value={password}
-    //       onChange={(e) => setPassword(e.target.value)}
-    //       label="PASSWORD"
-    //       type="password"
-    //       className="mb-14 flex"
-    //     />
-    //     <MainButton
-    //       type="submit"
-    //       label="Log In"
-    //       disabled={disabled || isLoading}
-    //       isLoading={isLoading}
-    //     />
-    //   </form>
+    // <div className="flex items-center gap-8 bg-white/90 px-10 py-16 rounded-2xl shadow-lg w-fit my-auto">
+    //   <div className="flex flex-col items-center min-w-80">
+    //     <p className="font-extrabold text-3xl mb-8">LOGIN</p>
+    //     <form onSubmit={handleSubmit} className="w-full">
+    //       <Input
+    //         value={email}
+    //         onChange={(e) => setEmail(e.target.value)}
+    //         label="E-MAIL"
+    //         placeholder="email@gmail.com"
+    //         className="mb-8"
+    //       />
+    //       <Input
+    //         value={password}
+    //         onChange={(e) => setPassword(e.target.value)}
+    //         label="PASSWORD"
+    //         type="password"
+    //         className="mb-14 flex"
+    //       />
+    //       <MainButton
+    //         type="submit"
+    //         label="Log In"
+    //         disabled={disabled || isLoading}
+    //         isLoading={isLoading}
+    //       />
+    //     </form>
+    //   </div>
+    //   <div>
+    //     <div className="bg-primary rounded-2xl p-22 mb-8 shadow-lg shadow-black/50">
+    //       <p className="text-3xl">Something</p>
+    //     </div>
+    //     <h2 className="font-extrabold text-6xl">Thank you</h2>
+    //     <h4 className="text-primary font-extrabold text-2xl">
+    //       Welcome to join us
+    //     </h4>
+    //   </div>
     // </div>
+    <div className="flex flex-col items-center bg-white/90 py-16 px-10 rounded-2xl shadow-lg md:w-96">
+      <p className="font-extrabold text-3xl mb-8">LOG IN</p>
+      {/* <p className="font-bold w-full">E-MAIL</p> */}
+      <form
+        onSubmit={handleSubmit}
+        className="w-full flex flex-col items-center"
+      >
+        <Input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          label="E-MAIL"
+          placeholder=""
+          className="mb-8"
+        />
+        {/* <p className="font-bold w-full">PASSWORD</p> */}
+        <Input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          label="PASSWORD"
+          type="password"
+          className="mb-14 flex"
+        />
+        <MainButton
+          type="submit"
+          label="Log In"
+          disabled={disabled || isLoading}
+          isLoading={isLoading}
+          className="rounded-full font-medium w-28"
+        />
+      </form>
+    </div>
   );
 };
 

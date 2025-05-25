@@ -16,7 +16,7 @@ const Input = ({ label, id, className, ...props }: InputProps) => {
       <input
         id={id}
         {...props}
-        className={cn(`bg-primary px-4 py-2 rounded-md w-full`, className)}
+        className={cn(`bg-primary px-4 py-2 rounded-full w-full`, className)}
       />
     </div>
   );

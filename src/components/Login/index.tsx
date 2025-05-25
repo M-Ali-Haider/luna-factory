@@ -1,24 +1,24 @@
 import Image from "next/image";
 import Form from "./Form";
-// import MemberShip from "./MemberShip";
-// import ThankYou from "./ThankYou";
+import MemberShip from "./MemberShip";
+import ThankYou from "./ThankYou";
 
 const Login = () => {
   return (
-    <div className="flex justify-center items-center min-h-[calc(100vh-64px)] pb-10">
+    <div className="flex justify-center items-center min-h-[calc(100vh-64px)] pb-10 bg-primary">
       <Image
         alt="background"
-        src={"/background.jpg"}
+        src={"/homepage.png"}
         fill
-        className="-z-10 object-cover"
+        className="object-contain z-[1]"
       />
 
-      <div className="flex items-stretch">
+      <div className="relative z-[2] flex flex-col md:flex-row px-4 gap-4">
         <Form />
-        {/* <div className="flex flex-col gap-4 ml-4">
+        <div className="flex flex-col gap-4">
           <MemberShip />
           <ThankYou />
-        </div> */}
+        </div>
       </div>
     </div>
   );

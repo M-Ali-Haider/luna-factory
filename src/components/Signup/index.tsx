@@ -7,9 +7,9 @@ const SignUp = () => {
     <div className="relative flex justify-center min-h-[calc(100vh-64px)] py-10">
       <Image
         alt="background"
-        src={"/background.jpg"}
+        src={"/registerBg.png"}
         fill
-        className="-z-10 object-cover"
+        className="-z-10 object-contain"
       />
       <Form />
     </div>

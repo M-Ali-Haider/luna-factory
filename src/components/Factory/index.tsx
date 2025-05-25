@@ -6,10 +6,10 @@ import { SearchIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 // import SideBar from "../SideBar";
 import Wrapper from "../Wrapper";
+import FactoryDialog from "./dialog";
 import Filters from "./Filters";
 import Items, { ItemsSkeleton } from "./Items";
 import Pagination from "./pagination";
-import FactoryDialog from "./dialog";
 
 const Factory = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -69,7 +69,13 @@ const Factory = () => {
 
   return (
     <div className="min-h-screen">
-      <FactoryDialog open={isOpen} setOpen={setIsOpen} />
+      <FactoryDialog
+        open={isOpen}
+        setOpen={setIsOpen}
+        categories={categories?.data}
+        isCategoriesError={isCategoriesError}
+        isCategoriesLoading={isCategoriesLoading}
+      />
       {/* <SideBar
         categories={categories?.data}
         isCategoriesError={isCategoriesError}

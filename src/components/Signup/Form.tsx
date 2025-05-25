@@ -54,27 +54,27 @@ const Form = () => {
   return (
     <div className="flex items-center gap-8 bg-white/90 px-10 py-16 rounded-2xl shadow-lg w-fit my-auto">
       <div className="flex flex-col items-center min-w-80">
-        <p className="font-extrabold text-3xl mb-8">REGISTER</p>
-        <form onSubmit={handleSubmit} className="w-full">
+        <p className="font-extrabold text-3xl mb-8">register</p>
+        <form
+          onSubmit={handleSubmit}
+          className="w-full flex flex-col items-center"
+        >
           <Input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            label="Name"
-            placeholder="Name"
+            label="NAME"
             className="mb-4"
           />
           <Input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            label="Email"
-            placeholder="Email"
+            label="E-MAIL"
             className="mb-4"
           />
           <Input
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             label="PHONE NUMBER"
-            placeholder="PHONE NUMBER"
             type="tel"
             className="mb-4"
           />
@@ -82,14 +82,12 @@ const Form = () => {
             value={country}
             onChange={(e) => setCountry(e.target.value)}
             label="COUNTRY"
-            placeholder=""
             className="mb-4"
           />
           <Input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             label="PASSWORD"
-            placeholder="Password"
             type="password"
             className="mb-14"
           />
@@ -98,12 +96,13 @@ const Form = () => {
             disabled={disabled || registerMutation.isPending}
             isLoading={registerMutation.isPending}
             type="submit"
+            className="rounded-full font-medium w-28"
           />
         </form>
       </div>
       <div>
         <div className="bg-primary rounded-2xl p-22 mb-8 shadow-lg shadow-black/50">
-          <p className="text-3xl">Something</p>
+          <p className="text-3xl">支付模块</p>
         </div>
         <h2 className="font-extrabold text-6xl">Thank you</h2>
         <h4 className="text-primary font-extrabold text-2xl">
