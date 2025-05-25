@@ -8,6 +8,7 @@ import { register } from "@/actions/auth";
 import { AuthErrorResponse } from "../Login/Form";
 import { toast } from "sonner";
 import { signIn } from "next-auth/react";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const Form = () => {
   const [name, setName] = useState("");
@@ -15,11 +16,20 @@ const Form = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [country, setCountry] = useState("");
+  const [isBusiness, setIsBusiness] = useState(false); // <-- new state
 
   const router = useRouter();
 
   const registerMutation = useMutation({
-    mutationFn: () => register(name, email, password, phone, country),
+    mutationFn: () =>
+      register(
+        name,
+        email,
+        password,
+        phone,
+        country,
+        isBusiness /* optionally add isBusiness here */
+      ),
     onSuccess: async () => {
       const res = await signIn("credentials", {
         redirect: false,
@@ -89,8 +99,21 @@ const Form = () => {
             onChange={(e) => setPassword(e.target.value)}
             label="PASSWORD"
             type="password"
-            className="mb-14"
+            className="mb-4"
           />
+          <div className="w-full flex items-center space-x-2 mb-14">
+            <Checkbox
+              id="terms"
+              checked={isBusiness}
+              onCheckedChange={(checked) => setIsBusiness(Boolean(checked))}
+            />
+            <label
+              htmlFor="terms"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Is this a business account?
+            </label>
+          </div>
           <MainButton
             label="START"
             disabled={disabled || registerMutation.isPending}

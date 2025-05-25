@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { User2 as User } from "lucide-react";
+// import { User2 as User } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import Image from "next/image";
 
 const HeaderUser = () => {
   const { data: session, status } = useSession();
@@ -20,10 +21,17 @@ const HeaderUser = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className={`${session?.user ? "" : "hidden"}`}>
-        <div className="hidden md:block bg-white rounded-full w-10 h-10 cursor-pointer">
-          <div className=" w-fit mx-auto h-full flex items-center">
+        <div className="hidden md:block bg-white rounded-full size-10 cursor-pointer relative">
+          <Image
+            src={"/member-details-pfp.png"}
+            alt="pfp"
+            className=""
+            fill
+            quality={100}
+          />
+          {/* <div className=" w-fit mx-auto h-full flex items-center">
             <User />
-          </div>
+          </div> */}
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

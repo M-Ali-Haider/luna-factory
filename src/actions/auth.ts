@@ -21,7 +21,8 @@ export const register = async (
   email: string,
   password: string,
   phone: string,
-  country: string
+  country: string,
+  isBusiness: boolean
 ) => {
   try {
     const response = await axiosInstance.post(`/api/users/register`, {
@@ -30,6 +31,7 @@ export const register = async (
       password,
       phone,
       country,
+      isBusiness,
     });
     return response.data;
   } catch (error) {
