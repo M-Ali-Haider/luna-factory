@@ -52,8 +52,8 @@ const Form = () => {
   };
 
   return (
-    <div className="flex items-center gap-8 bg-white/90 px-10 py-16 rounded-2xl shadow-lg w-fit my-auto">
-      <div className="flex flex-col items-center min-w-80">
+    <div className="flex flex-col md:flex-row items-center gap-8 bg-white/90 px-10 py-16 rounded-2xl shadow-lg w-fit my-auto">
+      <div className="flex flex-col items-center md:min-w-80">
         <p className="font-extrabold text-3xl mb-8">register</p>
         <form
           onSubmit={handleSubmit}
@@ -104,8 +104,8 @@ const Form = () => {
         <div className="bg-primary rounded-2xl p-22 mb-8 shadow-lg shadow-black/50">
           <p className="text-3xl">支付模块</p>
         </div>
-        <h2 className="font-extrabold text-6xl">Thank you</h2>
-        <h4 className="text-primary font-extrabold text-2xl">
+        <h2 className="font-extrabold text-4xl md:text-6xl">Thank you</h2>
+        <h4 className="text-primary font-extrabold text-lg md:text-2xl">
           Welcome to join us
         </h4>
       </div>

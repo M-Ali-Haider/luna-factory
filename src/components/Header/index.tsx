@@ -1,19 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import Wrapper from "../Wrapper";
 import HeaderLink from "./link";
 import MobileMenu from "./mobile-menu";
 import HeaderPaths from "./paths";
-import { auth } from "@/auth";
 import HeaderUser from "./user";
 
-const Header = async () => {
-  const session = await auth();
+const Header = () => {
   return (
-    <Wrapper className="flex justify-center bg-primary sticky top-0 z-30">
+    <div className="flex justify-center bg-primary sticky top-0 z-30">
       <div className="flex justify-between w-full max-w-[1440px] px-4">
         {/* Logo section */}
         <div className="flex items-center">
+          <MobileMenu />
           <div>
             <Link href={"/"}>
               <Image alt="Logo" src={"/logo.png"} width={100} height={50} />
@@ -28,16 +26,13 @@ const Header = async () => {
         {/* Right side items */}
         <div className="flex items-center justify-center gap-4">
           {/* Login/Register link - hidden on mobile */}
-          <div className="hidden md:block">
+          <div className="block">
             <HeaderLink />
           </div>
-
-          {/* User avatar - shown on desktop only */}
-          {session?.user && <HeaderUser email={session.user.email || ""} />}
-          <MobileMenu />
+          <HeaderUser />
         </div>
       </div>
-    </Wrapper>
+    </div>
   );
 };
 
