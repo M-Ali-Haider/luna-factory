@@ -1,0 +1,17 @@
+export const navItems = [
+  'Beauty and personal care',
+  'Electronics',
+  'Fashion',
+  'Home and kitchen',
+  'Sports and outdoors',
+  'Toys and games',
+  'Books',
+  'Health and wellness',
+  'Automotive',
+  'Grocery and gourmet food',
+  'Pet supplies',
+  'Office products',
+  'Baby products',
+  'Arts, crafts, and sewing',
+  'Computers',
+];
