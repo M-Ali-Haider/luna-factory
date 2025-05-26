@@ -102,8 +102,19 @@ const Skeleton = () => {
             {[...Array(2)].map((_, index) => (
               <div
                 key={index}
-                className="w-[200px] aspect-square rounded-md bg-gray-200"
-              />
+                className="w-full rounded-md overflow-hidden shadow bg-gray-200
+                flex items-center gap-4 p-3"
+              >
+                <div className="text-ellipsis w-[100px] bg-gray-300 animate-pulse rounded-full text-transparent">
+                  bruhmius
+                </div>
+                <div className="text-ellipsis w-[150px] bg-gray-300 animate-pulse rounded-full text-transparent">
+                  bruhmius
+                </div>
+                <div className="text-ellipsis flex-1 bg-gray-300 animate-pulse rounded-full text-transparent">
+                  bruhmius
+                </div>
+              </div>
             ))}
           </div>
           <div className="h-8 w-3/4 bg-gray-200 rounded mb-6" />
