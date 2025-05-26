@@ -1,4 +1,5 @@
 import {
+  checkInterested,
   getFactories,
   getFactoryById,
   getFactoryCategories,
@@ -37,5 +38,17 @@ export const useFactorycategories = () => {
     queryKey: ["categories"],
     queryFn: getFactoryCategories,
     staleTime: 1000 * 60 * 5,
+  });
+};
+
+export const useCheckInterested = (id: string) => {
+  return useQuery({
+    queryKey: ["checkInterested", id],
+    queryFn: () => checkInterested(id),
+    enabled: !!id, // Only run if `id` exists
+    refetchOnWindowFocus: false,
+    refetchOnMount: false, // disable refetch on mount if data is stale
+    refetchOnReconnect: false, // disable refetch on reconnect
+    refetchInterval: false,
   });
 };

@@ -1,13 +1,20 @@
 "use client";
-import { useFactory } from "@/hooks/useFactory";
+import { useCheckInterested, useFactory } from "@/hooks/useFactory";
 import Image from "next/image";
-import PicturesFactoryID from "./id-pictures";
-import YouTube from "react-youtube";
 import { useEffect } from "react";
+import YouTube from "react-youtube";
 import { toast } from "sonner";
+import PicturesFactoryID from "./id-pictures";
+import Interested from "./interested";
 
 const FactoryIDPage = ({ id }: { id: string }) => {
   const { data, isLoading, isError, error } = useFactory(id);
+  const {
+    data: checkInterestData,
+    isFetching: checkInterestLoading,
+    isError: checkInterestError,
+  } = useCheckInterested(id);
+
   const isSubscriptionError =
     error &&
     typeof error === "object" &&
@@ -45,9 +52,17 @@ const FactoryIDPage = ({ id }: { id: string }) => {
             />
           </div>
           <div className="flex-1 min-w-0 text-sm">
-            <h1 className="mb-4 font-medium text-3xl break-words uppercase">
-              {data?.data.name}
-            </h1>
+            <div className="flex gap-4">
+              <h1 className="mb-4 font-medium text-3xl break-words uppercase">
+                {data?.data.name}
+              </h1>
+              <Interested
+                id={id}
+                isInterested={checkInterestData?.data.isInterested}
+                isLoading={checkInterestLoading}
+                isError={checkInterestError}
+              />
+            </div>
             <p>标签(一级类目): {data?.data.category.name}</p>
             <p>
               标签(二级类目即主营产品):{" "}

@@ -2,6 +2,8 @@
 import MemberDetailsLeft from "@/components/MemberDetails/left";
 import { useMe } from "@/hooks/useMe";
 import { ChevronsRight } from "lucide-react";
+import InterestedFactories from "./interestedFactories";
+import RequestPosted from "./requestsPosted";
 
 const MemberDetails = () => {
   const { data, isLoading, isError } = useMe();
@@ -26,24 +28,8 @@ const MemberDetails = () => {
       >
         <MemberDetailsLeft user={data?.user} />
         <div className="w-full md:w-auto md:flex-1 bg-white p-6 rounded-xl">
-          <Heading text="Requests I have Posted ( 用户提出的需求表单总览 )" />
-          <div className="py-8 flex flex-wrap items-center gap-4">
-            {[...Array(2)].map((_, index) => (
-              <div
-                key={index}
-                className="w-[200px] aspect-square rounded-md shadow bg-primary"
-              ></div>
-            ))}
-          </div>
-          <Heading text="Factories I am Interested ( 用户感兴趣的工厂总览 )" />
-          <div className="py-8 flex flex-wrap items-center gap-4">
-            {[...Array(4)].map((_, index) => (
-              <div
-                key={index}
-                className="w-[200px] aspect-square rounded-md shadow bg-primary"
-              ></div>
-            ))}
-          </div>
+          <RequestPosted />
+          <InterestedFactories />
           {!data?.user?.isPaid && (
             <div className="bg-secondary text-white h-fit w-full p-6 rounded-2xl shadow-lg shadow-black">
               <h1 className="text-2xl md:text-4xl font-extrabold text-primary">
@@ -81,7 +67,7 @@ const MemberDetails = () => {
 
 export default MemberDetails;
 
-const Heading = ({ text }: { text: string }) => {
+export const Heading = ({ text }: { text: string }) => {
   return (
     <div className="flex flex-wrap items-end justify-between">
       <div className="font-medium">{text}</div>
@@ -120,7 +106,6 @@ const Skeleton = () => {
               />
             ))}
           </div>
-
           <div className="h-8 w-3/4 bg-gray-200 rounded mb-6" />
           <div className="py-8 flex flex-wrap items-center gap-4">
             {[...Array(4)].map((_, index) => (

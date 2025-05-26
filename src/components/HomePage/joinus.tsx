@@ -3,10 +3,11 @@ import { UsersRound } from "lucide-react";
 import React, { ReactNode } from "react";
 import ScaleInView from "../Animators/ScaleInView";
 import { AnimatedProgressBar } from "./AnimatedBar";
+import Link from "next/link";
 
 const JoinUs = () => {
   return (
-    <div className="flex flex-col gap-10 items-center mb-8 mt-8">
+    <div id="joinus" className="flex flex-col gap-10 items-center mb-8 mt-8">
       <div className="w-full max-w-[1546px]">
         <div
           className="max-w-max px-10 py-4
@@ -19,7 +20,7 @@ const JoinUs = () => {
 
       <ScaleInView>
         <div className="max-w-[768px] px-4 w-full flex items-center flex-wrap gap-10">
-          <CardWrapper>
+          <CardWrapper href="/signup">
             <div className="flex-1 flex flex-col items-center justify-center p-6 gap-8">
               <div className="bg-primary text-white font-bold text-3xl size-12 rounded-full flex items-center justify-center">
                 1
@@ -37,7 +38,7 @@ const JoinUs = () => {
             </div>
           </CardWrapper>
 
-          <CardWrapper>
+          <CardWrapper href="/login">
             <div className="flex-1 bg-primary flex flex-col items-center justify-center p-6 gap-8">
               <div className="bg-white text-primary font-bold text-3xl size-12 rounded-full flex items-center justify-center">
                 2
@@ -84,18 +85,21 @@ export default JoinUs;
 const CardWrapper = ({
   children,
   className,
+  href,
 }: {
   children: ReactNode;
   className?: string;
+  href: string;
 }) => {
   return (
-    <div
+    <Link
+      href={href}
       className={cn(
         `flex-1 shadow-2xl rounded-xl min-w-[250px] overflow-hidden aspect-[11/12] flex flex-col`,
         className
       )}
     >
       {children}
-    </div>
+    </Link>
   );
 };

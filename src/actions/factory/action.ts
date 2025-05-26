@@ -75,3 +75,33 @@ export const factoryForm = async (
     throw error;
   }
 };
+
+export const checkInterested = async (factoryId: string) => {
+  try {
+    const response = await axiosInstance.get(
+      `/api/factory/${factoryId}/interest`
+    );
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw (
+        error.response?.data || new Error("Failed to check interested status")
+      );
+    }
+    throw error;
+  }
+};
+
+export const toggleInterest = async (id: string) => {
+  try {
+    const response = await axiosInstance.post(
+      `/api/factory/${id}/interest/toggle`
+    );
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw error.response?.data || new Error("Failed to submit form");
+    }
+    throw error;
+  }
+};

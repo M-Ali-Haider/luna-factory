@@ -22,11 +22,11 @@ const Footer = () => {
       <div className="h-[1px] bg-white w-full"></div>
       <div
         className="max-w-[1280px] w-full px-4
-        flex items-center justify-between mt-3
+        flex items-center justify-center mt-3
         text-sm"
       >
         <div>Copyright ©2025. Luna With Fans. All Rights Reserved</div>
-        <div>Design & Develop by AdRankify Technologies</div>
+        {/* <div>Design & Develop by AdRankify Technologies</div> */}
       </div>
     </div>
   );
