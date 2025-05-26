@@ -13,7 +13,7 @@ const RequestsPosted = () => {
 
   return (
     <>
-      <Heading text="Requests I have Posted ( 用户提出的需求表单总览 )" />
+      <Heading text="Requests I have Posted" />
       {isLoading ? (
         <div className="py-8 flex flex-wrap items-center gap-4">
           {[...Array(2)].map((_, index) => (

@@ -30,6 +30,8 @@ export const useFactory = (id: string) => {
     queryKey: ["factory", id],
     queryFn: () => getFactoryById(id),
     enabled: !!id, // Only run if `id` exists
+    refetchOnWindowFocus: false,
+    retry: false,
   });
 };
 

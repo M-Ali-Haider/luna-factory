@@ -1,13 +1,15 @@
 "use client";
 import { useCheckInterested, useFactory } from "@/hooks/useFactory";
 import Image from "next/image";
-import { useEffect } from "react";
 import YouTube from "react-youtube";
-import { toast } from "sonner";
 import PicturesFactoryID from "./id-pictures";
-import Interested from "./interested";
+import Interested, { InterestedDisabled } from "./interested";
+import { AccessDeniedError } from "@/actions/factory/action";
+import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const FactoryIDPage = ({ id }: { id: string }) => {
+  const { data: session } = useSession();
   const { data, isLoading, isError, error } = useFactory(id);
   const {
     data: checkInterestData,
@@ -15,29 +17,89 @@ const FactoryIDPage = ({ id }: { id: string }) => {
     isError: checkInterestError,
   } = useCheckInterested(id);
 
-  const isSubscriptionError =
-    error &&
-    typeof error === "object" &&
-    "code" in error &&
-    error.code === "SUBSCRIPTION_REQUIRED";
-
-  useEffect(() => {
-    let toastId: string | number | undefined;
-    if (isSubscriptionError) {
-      toastId = toast.error("Get a paid subscription to access this feature.", {
-        duration: Infinity,
-        closeButton: true,
-      });
-    }
-    return () => {
-      if (toastId) {
-        toast.dismiss(toastId);
-      }
-    };
-  }, [isSubscriptionError]);
-
   if (isLoading) return <Skeleton />;
-  if (isError) return <ErrorUI isSubscriptionError={isSubscriptionError} />;
+  if (error instanceof AccessDeniedError) {
+    return (
+      <div className="min-h-screen flex justify-center px-4 py-10">
+        <div className="max-w-[1440px] w-full">
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="flex-1 aspect-square md:aspect-auto min-w-0 bg-primary flex items-center justify-center rounded-md relative">
+              <Image
+                src={error?.data.mainImage || "/background.jpg"}
+                fill
+                alt="工厂图片"
+                className="object-cover"
+              />
+            </div>
+            <div className="flex-1 min-w-0 text-sm">
+              <div className="flex gap-4">
+                <h1 className="mb-4 font-medium text-3xl break-words uppercase">
+                  {error?.data.name}
+                </h1>
+                <InterestedDisabled />
+              </div>
+              <p>标签(一级类目): {error?.data.category?.name}</p>
+              <div className="relative">
+                <div className="absolute inset-0 bg-white/60 backdrop-blur-sm flex flex-col items-center justify-center">
+                  <p className="text-lg font-semibold text-gray-800 mb-2">
+                    {session?.user
+                      ? "Buy our paid plan to continue reading"
+                      : "Login to continue reading"}
+                  </p>
+                  {session?.user ? (
+                    <div className="px-8 py-3 bg-primary text-white rounded-full transition">
+                      Paid Membership
+                    </div>
+                  ) : (
+                    <Link
+                      href={"/login"}
+                      className="px-8 py-3 bg-primary text-white rounded-full transition"
+                    >
+                      Login
+                    </Link>
+                  )}
+                </div>
+                <p>
+                  标签(二级类目即主营产品): Licensed Bamboo Chicken | Electronic
+                  Aluminum Pizza | Gorgeous Ceramic Salad | Licensed Silk Towels
+                  | 123 | gfsgdsffsd | asdasdasdadsdsa
+                </p>
+                <p className="mt-6 mb-4 break-words">
+                  工厂简介: Acceptus acquiro suffoco amplexus sumo tabesco
+                  vociferor demonstro rerum. Adsidue vulariter supellex communis
+                  centum delicate sonitus unde vel succedo. Considero curia
+                  accedo taedium tabgo eaque allatus. Assumenda spiritus veritas
+                  tabernus. Cotidie apto decet terminatio tempus demitto
+                  officia. Articulus tricesimus inventore utor molestiae
+                  dignissimos deserunt viscus adulescens.
+                </p>
+                <p>工厂地址: 556 Doyle Fork Apt. 221</p>
+                <p className="my-4">联系方式: 1-522-789-7753 x66423</p>
+                <p>e-mail: Cicero6@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="absolute inset-0 bg-white/60 backdrop-blur-sm flex flex-col items-center justify-center" />
+            <div
+              className="mt-20 bg-primary p-6 rounded-md
+              flex flex-col md:flex-row gap-8"
+            >
+              <div className="bg-white aspect-[21/9] flex-1"></div>
+              <div className="flex-1 flex flex-col items-center">
+                <div className="text-center mb-4">推荐理由</div>
+                <div className="text-center mt-10 mb-8">
+                  Flexible MOQ and payment terms
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (isError) return <ErrorUI />;
 
   return (
     <div className="min-h-screen flex justify-center px-4 py-10">
@@ -63,7 +125,7 @@ const FactoryIDPage = ({ id }: { id: string }) => {
                 isError={checkInterestError}
               />
             </div>
-            <p>标签(一级类目): {data?.data.category.name}</p>
+            <p>标签(一级类目): {data?.data.category?.name}</p>
             <p>
               标签(二级类目即主营产品):{" "}
               {data?.data.products.map((item) => item.name).join(" | ")}
@@ -155,27 +217,19 @@ export const Skeleton = () => (
   </div>
 );
 
-const ErrorUI = ({
-  isSubscriptionError,
-}: {
-  isSubscriptionError: boolean | null;
-}) => (
+const ErrorUI = () => (
   <>
-    {isSubscriptionError ? (
-      <Skeleton />
-    ) : (
-      <div className="min-h-screen flex justify-center px-4 py-10">
-        <div className="max-w-[1440px] w-full text-center text-red-600">
-          <h2 className="text-2xl font-semibold mb-4">加载失败</h2>
-          <p className="mb-2">无法获取工厂信息，请稍后再试。</p>
-          <button
-            onClick={() => window.location.reload()}
-            className="mt-4 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-md"
-          >
-            重新加载
-          </button>
-        </div>
+    <div className="min-h-screen flex justify-center px-4 py-10">
+      <div className="max-w-[1440px] w-full text-center text-red-600">
+        <h2 className="text-2xl font-semibold mb-4">加载失败</h2>
+        <p className="mb-2">无法获取工厂信息，请稍后再试。</p>
+        <button
+          onClick={() => window.location.reload()}
+          className="mt-4 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-md"
+        >
+          重新加载
+        </button>
       </div>
-    )}
+    </div>
   </>
 );

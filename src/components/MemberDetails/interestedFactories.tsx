@@ -15,7 +15,7 @@ const InterestedFactories = () => {
 
   return (
     <>
-      <Heading text="Factories I am Interested ( 用户感兴趣的工厂总览 )" />
+      <Heading text="Factories I am Interested" />
       {isLoading ? (
         <div className="py-8 flex flex-wrap items-center gap-4">
           {[...Array(2)].map((_, index) => (

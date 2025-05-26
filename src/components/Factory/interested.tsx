@@ -1,6 +1,6 @@
 import { toggleInterest } from "@/actions/factory/action";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Bookmark, Loader2, AlertCircle } from "lucide-react";
+import { AlertCircle, Heart, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
 const Interested = ({
@@ -46,7 +46,7 @@ const Interested = ({
           } size-9 rounded-full flex items-center justify-center
           hover:bg-black/10 cursor-pointer`}
         >
-          <Bookmark fill={isInterested ? "currentColor" : "none"} />
+          <Heart fill={isInterested ? "currentColor" : "none"} />
         </button>
       )}
     </>
@@ -54,3 +54,12 @@ const Interested = ({
 };
 
 export default Interested;
+
+export const InterestedDisabled = () => (
+  <button
+    className={`text-black size-9 rounded-full flex items-center justify-center
+    hover:bg-black/10 cursor-not-allowed`}
+  >
+    <Heart />
+  </button>
+);

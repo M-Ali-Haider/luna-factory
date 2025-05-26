@@ -1,6 +1,22 @@
 import { axiosInstance } from "@/utils/axios";
 import axios from "axios";
 
+export class AccessDeniedError extends Error {
+  data: {
+    name: string;
+    category: {
+      name: string;
+    };
+    mainImage?: string;
+  };
+
+  constructor(data: AccessDeniedError["data"]) {
+    super("Access Denied");
+    this.name = "AccessDeniedError";
+    this.data = data;
+  }
+}
+
 export const getFactories = async (
   filter: string | null,
   pageSize: number,
@@ -28,9 +44,53 @@ export const getFactories = async (
   }
 };
 
+// export const getFactoryById = async (id: string) => {
+//   try {
+//     const response = await axiosInstance.get(`/api/factory/${id}`);
+//     return response.data;
+//   } catch (error) {
+//     if (axios.isAxiosError(error)) {
+//       throw error.response?.data || new Error("Failed to get factory data");
+//     }
+//     throw error;
+//   }
+// };
+
+// export const getFactoryById = async (id: string) => {
+//   try {
+//     const response = await axiosInstance.get(`/api/factory/${id}`);
+
+//     // Detect access denied from backend response
+//     if (
+//       response.data?.success === false &&
+//       response.data?.message === "Access Denied"
+//     ) {
+//       const error: any = new Error("Access Denied");
+//       error.name = "AccessDeniedError";
+//       error.data = response.data.data; // publicData from backend
+//       throw error;
+//     }
+
+//     return response.data;
+//   } catch (error) {
+//     if (axios.isAxiosError(error)) {
+//       throw error.response?.data || new Error("Failed to get factory data");
+//     }
+//     throw error;
+//   }
+// };
+
 export const getFactoryById = async (id: string) => {
   try {
     const response = await axiosInstance.get(`/api/factory/${id}`);
+
+    if (
+      response.data?.success === false &&
+      response.data?.message === "Access Denied"
+    ) {
+      throw new AccessDeniedError(response.data.data);
+    }
+
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
