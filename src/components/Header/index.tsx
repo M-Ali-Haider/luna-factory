@@ -14,7 +14,13 @@ const Header = () => {
           <MobileMenu />
           <div>
             <Link href={"/"}>
-              <Image alt="Logo" src={"/logo.png"} width={100} height={50} />
+              <Image
+                alt="Logo"
+                src={"/logo.png"}
+                width={100}
+                height={50}
+                loading="eager"
+              />
             </Link>
           </div>
           {/* Desktop navigation */}

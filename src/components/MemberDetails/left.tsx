@@ -24,6 +24,7 @@ const MemberDetailsLeft = ({ user }: MemberDetailsLeftProps) => {
           fill
           className="rounded-full"
           alt="pfp-image"
+          loading="eager"
         />
         {user?.isBusiness && (
           <div

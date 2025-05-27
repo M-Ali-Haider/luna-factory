@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 const Item = () => {
   return (
@@ -7,10 +7,11 @@ const Item = () => {
         {/* Zoom wrapper */}
         <div className="w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-110">
           <Image
-            src={'/background.jpg'}
-            alt={'Image'}
+            src={"/background.jpg"}
+            alt={"Image"}
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
+            loading="eager"
           />
         </div>
       </div>

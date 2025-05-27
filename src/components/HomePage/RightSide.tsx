@@ -9,7 +9,13 @@ const RightSide = () => {
         {/* Top image with hover overlay */}
         <div className="absolute top-0 left-[25px] w-[225px] h-[280px] rounded-3xl overflow-hidden shadow-lg z-10 group cursor-pointer">
           <div className="w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-110">
-            <Image alt="" src={"/card1.png"} fill className="object-cover" />
+            <Image
+              alt=""
+              src={"/card1.png"}
+              fill
+              className="object-cover"
+              loading="eager"
+            />
             <div className="bg-black/10 absolute inset-0" />
             <div className="group-hover:opacity-0 text-primary absolute top-12 left-4 font-extrabold text-lg">
               <div>I want to find</div>
@@ -34,7 +40,13 @@ const RightSide = () => {
         {/* Bottom image (slightly lower and to the right) */}
         <div className="absolute top-20 left-24 w-[225px] h-[280px] rounded-3xl overflow-hidden shadow-md z-0 group hover:z-20 cursor-pointer">
           <div className="w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-110">
-            <Image alt="" src={"/card2.png"} fill className="object-cover" />
+            <Image
+              alt=""
+              src={"/card2.png"}
+              fill
+              className="object-cover"
+              loading="eager"
+            />
             <div className="bg-white/50 absolute inset-0" />
             <div className="group-hover:opacity-0 text-black absolute bottom-3.5 left-5 font-extrabold text-lg">
               <div>I want to find</div>

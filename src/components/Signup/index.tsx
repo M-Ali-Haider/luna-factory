@@ -13,6 +13,7 @@ const SignUp = () => {
               src={"/registerBg.png"}
               fill
               className="object-contain"
+              loading="eager"
             />
           </div>
         </div>

@@ -28,6 +28,7 @@ const HeaderUser = () => {
             className=""
             fill
             quality={100}
+            loading="eager"
           />
           {/* <div className=" w-fit mx-auto h-full flex items-center">
             <User />

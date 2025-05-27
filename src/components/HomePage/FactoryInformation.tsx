@@ -5,7 +5,13 @@ import SlideInView from "../Animators/SlideOnView";
 const FactoryInformation = () => {
   return (
     <div className="relative">
-      <Image src={"/grafiti.png"} fill alt="grafiti" className="-z-[1]" />
+      <Image
+        src={"/grafiti.png"}
+        fill
+        alt="grafiti"
+        className="-z-[1]"
+        loading="eager"
+      />
       <div className="mt-20 text-7xl text-end font-barlow font-extrabold text-primary mb-8 max-[1200px]:text-4xl">
         <h1>Factory</h1>
         <h1>Information</h1>
@@ -22,6 +28,7 @@ const FactoryInformation = () => {
             <Image
               alt=""
               src={"/factory-homepage.png"}
+              loading="eager"
               fill
               style={{ objectFit: "cover" }}
               className=""

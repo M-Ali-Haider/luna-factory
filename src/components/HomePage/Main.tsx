@@ -10,6 +10,7 @@ const Main = () => {
       <Image
         alt=""
         src={"/homepage.png"}
+        loading="eager"
         fill
         objectFit="contain"
         className="-z-10 bg-primary"

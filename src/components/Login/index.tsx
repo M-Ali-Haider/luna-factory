@@ -11,6 +11,7 @@ const Login = () => {
         src={"/homepage.png"}
         fill
         className="object-contain z-[1]"
+        loading="eager"
       />
 
       <div className="relative z-[2] flex flex-col md:flex-row px-4 gap-4">
