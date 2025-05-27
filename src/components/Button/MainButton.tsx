@@ -33,7 +33,7 @@ const MainButton: React.FC<MainButtonProps> = ({
         <button
           className={cn(
             `bg-primary w-24 py-2 rounded-md cursor-pointer active:scale-90 transition-all duration-300
-            flex items-center justify-center`,
+            flex items-center justify-center disabled:cursor-not-allowed disabled:opacity-50`,
             className
           )}
           {...props}

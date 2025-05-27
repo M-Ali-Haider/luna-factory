@@ -14,7 +14,7 @@ const FilterSelector = ({
       onClick={onClick}
       className={`${
         selected ? "bg-primary" : "bg-gray"
-      } px-2 py-1 rounded-lg hover:bg-primary cursor-pointer font-semibold text-sm`}
+      } px-2 py-1 rounded-lg hover:bg-primary cursor-pointer text-sm`}
     >
       {title}
     </button>

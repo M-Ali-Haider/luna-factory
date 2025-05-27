@@ -15,7 +15,10 @@ const HeaderPaths = () => {
             key={index}
             className={`${
               pathName === item.href ? "bg-black text-white" : "text-black"
-            } flex items-center w-20 h-16 justify-center hover:bg-black hover:text-white duration-200`}
+            } flex items-center justify-center 
+            w-20 h-16
+            font-light 
+            hover:bg-black hover:text-white duration-200`}
           >
             {item.title}
           </Link>

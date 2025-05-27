@@ -7,7 +7,7 @@ import HeaderUser from "./user";
 
 const Header = () => {
   return (
-    <div className="flex justify-center bg-primary sticky top-0 z-30">
+    <div className="font-alibaba flex justify-center bg-primary sticky top-0 z-30">
       <div className="flex justify-between w-full max-w-[1440px] px-4">
         {/* Logo section */}
         <div className="flex items-center">

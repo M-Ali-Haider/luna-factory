@@ -22,7 +22,9 @@ export const register = async (
   password: string,
   phone: string,
   country: string,
-  isBusiness: boolean
+  isBusiness: boolean,
+  companyName: string | null,
+  companyStatus: string | null
 ) => {
   try {
     const response = await axiosInstance.post(`/api/users/register`, {
@@ -32,6 +34,8 @@ export const register = async (
       phone,
       country,
       isBusiness,
+      companyName,
+      companyStatus,
     });
     return response.data;
   } catch (error) {
@@ -42,16 +46,31 @@ export const register = async (
   }
 };
 
-// export const resendOTP = async (email: string) => {
-//   try {
-//     const response = await axiosInstance.post(`/api/auth/resend-otp`, {
-//       email,
-//     });
-//     return response.data;
-//   } catch (error) {
-//     if (axios.isAxiosError(error)) {
-//       throw error.response?.data || new Error("Failed to Resend OTP");
-//     }
-//     throw error;
-//   }
-// };
+export const verifyOTP = async (otp: string, email: string) => {
+  try {
+    const response = await axiosInstance.post(`/api/users/verify-otp`, {
+      email,
+      otp,
+    });
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw error.response?.data || new Error("Failed to Verify OTP");
+    }
+    throw error;
+  }
+};
+
+export const resendOTP = async (email: string) => {
+  try {
+    const response = await axiosInstance.post(`/api/users/send-otp`, {
+      email,
+    });
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw error.response?.data || new Error("Failed to Resend OTP");
+    }
+    throw error;
+  }
+};

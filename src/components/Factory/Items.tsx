@@ -25,7 +25,9 @@ const Items = ({ item }: { item: FactoryInterface }) => {
 
       {/* Text content over image */}
       <div className="absolute bottom-0 left-0 right-0 p-4 z-20 text-white">
-        <h3 className="font-bold text-base leading-snug">{item.name}</h3>
+        <h3 className="font-bold text-base leading-snug line-clamp-2">
+          {item.name}
+        </h3>
         <p className="text-sm mt-1 line-clamp-2">Main Products: {products}</p>
       </div>
     </Link>

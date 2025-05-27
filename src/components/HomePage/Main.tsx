@@ -6,7 +6,7 @@ import LeftSide from "./LeftSide";
 
 const Main = () => {
   return (
-    <div className="flex justify-between relative w-full h-screen max-h-[1200px]">
+    <div className="font-barlow flex justify-between relative w-full h-screen max-h-[1200px]">
       <Image
         alt=""
         src={"/homepage.png"}

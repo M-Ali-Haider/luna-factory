@@ -58,7 +58,7 @@ const RightSide = () => {
       </div>
 
       {/* Sourcing */}
-      <div className="text-7xl font-bold text-end mt-18 text-black pr-2">
+      <div className="text-7xl font-extrabold text-end mt-18 text-black pr-2">
         <h1 className="text-6xl relative">
           Sourcing <RightArrowSVG className="absolute left-10 -top-7" />
         </h1>

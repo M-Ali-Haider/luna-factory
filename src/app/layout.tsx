@@ -1,22 +1,19 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { NextThemeProvider } from "@/providers/next-theme";
 import ReactQueryProvider from "@/providers/react-query";
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Toaster } from "sonner";
-import "./globals.css";
 import { ReduxStoreProvider } from "@/providers/redux";
-import Footer from "@/components/Footer";
+import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
+import { Barlow } from "next/font/google";
+import { Toaster } from "sonner";
+import { alibaba, sourceHans } from "./fonts/fonts";
+import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const barlow = Barlow({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-barlow",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -32,7 +29,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${barlow.variable} ${alibaba.variable}
+        ${sourceHans.className} antialiased`}
       >
         <SessionProvider>
           <Toaster position="bottom-right" />

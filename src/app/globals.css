@@ -9,6 +9,9 @@
   /* 
     Added Styles 
   */
+  --font-barlow: var(--font-barlow);
+  --font-han-sans: var(--font-source-hans);
+  --font-alibaba: var(--font-alibaba);
 
   /* Default Styles */
   --color-background: var(--background);

@@ -10,8 +10,8 @@ const JoinUs = () => {
     <div id="joinus" className="flex flex-col gap-10 items-center mb-8 mt-8">
       <div className="w-full max-w-[1546px]">
         <div
-          className="max-w-max px-10 py-4
-            text-white bg-primary font-bold text-3xl
+          className="font-barlow max-w-max px-10 py-4
+            text-white bg-primary font-extrabold text-3xl
             rounded-r-full shadow-2xl"
         >
           Join Us

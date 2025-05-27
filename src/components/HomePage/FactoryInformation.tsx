@@ -6,17 +6,17 @@ const FactoryInformation = () => {
   return (
     <div className="relative">
       <Image src={"/grafiti.png"} fill alt="grafiti" className="-z-[1]" />
-      <div className="mt-20 text-7xl text-end font-extrabold text-primary mb-8 max-[1200px]:text-4xl">
+      <div className="mt-20 text-7xl text-end font-barlow font-extrabold text-primary mb-8 max-[1200px]:text-4xl">
         <h1>Factory</h1>
         <h1>Information</h1>
       </div>
 
       {/* Image */}
       <SlideInView from="right">
-        <div className="relative w-full h-[70vh] max-h-[700px] flex justify-end max-[1200px]:h-[300px]">
-          <div className="relative h-[calc(100%-20px)] w-[90%] mr-[24px]">
+        <div className="relative w-full h-[67.5vh] max-h-[700px] flex justify-end max-[1200px]:h-[300px]">
+          <div className="relative h-[calc(100%-20px)] w-[90%] mr-7">
             {/* Background box behind the image */}
-            <div className="absolute top-8 left-6 w-full h-full bg-primary -z-10" />
+            <div className="absolute top-8 left-7 w-full h-full bg-primary -z-10" />
 
             {/* Foreground image */}
             <Image
@@ -29,7 +29,7 @@ const FactoryInformation = () => {
           </div>
 
           <div className="absolute w-[300px] rounded-t-full h-2/3 left-0 -top-50 bg-gradient-to-b from-primary to-transparent max-[1200px]:hidden">
-            <div className="text-black text-[56px] leading-none font-extrabold mt-20 px-10">
+            <div className="font-barlow text-black text-[56px] leading-none font-extrabold mt-20 px-10">
               <SlideInView from="left" delay={0.3}>
                 <h1 className="">See</h1>
               </SlideInView>

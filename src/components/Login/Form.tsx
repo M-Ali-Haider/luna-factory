@@ -72,7 +72,7 @@ const Form = () => {
     //   </div>
     // </div>
     <div className="flex flex-col items-center bg-white/90 py-16 px-10 rounded-2xl shadow-lg md:w-96">
-      <p className="font-extrabold text-3xl mb-8">LOG IN</p>
+      <p className="font-barlow font-extrabold text-3xl mb-8">LOG IN</p>
       {/* <p className="font-bold w-full">E-MAIL</p> */}
       <form
         onSubmit={handleSubmit}
@@ -98,7 +98,7 @@ const Form = () => {
           label="Log In"
           disabled={disabled || isLoading}
           isLoading={isLoading}
-          className="rounded-full font-medium w-28"
+          className="rounded-full text-xl font-medium w-28"
         />
       </form>
     </div>

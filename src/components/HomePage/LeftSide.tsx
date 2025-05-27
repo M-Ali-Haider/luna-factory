@@ -6,7 +6,7 @@ import Image from "next/image";
 const LeftSide = () => {
   return (
     <div className="w-[50%] flex flex-col justify-end max-[1000px]:w-full">
-      <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
+      <h2 className="font-extrabold text-2xl md:text-4xl text-white mb-4">
         If you have any good creative ideas feel free to share them here
       </h2>
       <HomeButton className={"w-fit mb-4"} />

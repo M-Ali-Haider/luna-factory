@@ -46,34 +46,33 @@ const AnimatedNumber = ({
 
 const Advantages = () => {
   return (
-    <div className="flex max-[1024px]:flex-col bg-white mx-auto px-4 py-12 shadow-lg shadow-black/50 rounded-3xl -translate-y-1/9 max-[1000px]:translate-y-10 mb-6">
+    <div className="flex max-[1024px]:flex-col bg-white mx-auto px-4 md:px-12 py-12 shadow-lg shadow-black/50 rounded-3xl -translate-y-1/9 max-[1000px]:translate-y-10 mb-6">
       <div className="w-1/2 max-[1024px]:w-full">
-        <h1 className="text-primary text-5xl mb-4 max-[1200px]:text-2xl">
+        <h1 className="font-barlow font-medium text-primary text-5xl mb-4 max-[1200px]:text-2xl">
           Our Advantages
         </h1>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae,
-          quidem? Aliquid delectus ullam, nulla pariatur perspiciatis animi
-          quam! Qui aspernatur saepe repellat! Repudiandae rem soluta magnam
-          quasi quidem! Vero, qui.
+          We have a professional team. You can directly find high-quality source
+          factories on the website. You can also express your own creative ideas
+          and find like-minded partners.
         </p>
       </div>
       <div className="grid grid-cols-2 gap-4 w-1/2 p-4 text-center max-[1024px]:w-full max-[1024px]:grid-cols-1">
         <div>
           <AnimatedNumber value={15000} />
-          <p className="font-semibold">Registered users</p>
+          <p className="font-medium">Registered users</p>
         </div>
         <div>
           <AnimatedNumber value={1320} />
-          <p className="font-semibold">Factory</p>
+          <p className="font-medium">Factory</p>
         </div>
         <div>
           <AnimatedNumber value={96} extra="%" />
-          <p className="font-semibold">Success Rate</p>
+          <p className="font-medium">Success Rate</p>
         </div>
         <div>
           <AnimatedNumber value={16.7} extra="k" precision={1} />
-          <p className="font-semibold">Creative Ideas</p>
+          <p className="font-medium">Creative Ideas</p>
         </div>
       </div>
     </div>
