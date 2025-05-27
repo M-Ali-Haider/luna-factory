@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import MainButton from "../Button/MainButton";
 import Input from "../InputField/Input";
 import { AuthErrorResponse } from "../Signup/Form";
+import { signIn } from "next-auth/react";
 
 export interface OTPProps {
   email: string;
@@ -22,9 +23,18 @@ const OTP = ({ email }: OTPProps) => {
 
   const verifyMutation = useMutation({
     mutationFn: () => verifyOTP(otp, email),
-    onSuccess: async () => {
-      toast.success("OTP Verification successful. Account created.");
-      router.replace("/login");
+    onSuccess: async (data) => {
+      const res = await signIn("credentials", {
+        redirect: false,
+        email,
+        password: data.user.tempPass,
+      });
+      if (res?.error) {
+        toast.error(res.code || "Something went wrong");
+      } else {
+        toast.success("Registration Successful");
+        router.replace(`/`);
+      }
     },
     onError: (error: unknown) => {
       const err = error as AuthErrorResponse;
