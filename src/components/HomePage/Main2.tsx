@@ -145,6 +145,7 @@ const ImageBackground = () => (
         fill
         className="bg-primary object-left object-cover md:object-center md:object-contain z-[2]"
         priority
+        quality={100}
       />
     </div>
   </div>
