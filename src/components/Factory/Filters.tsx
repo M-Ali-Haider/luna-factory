@@ -34,7 +34,7 @@ export interface FiltersInterface {
 export interface ProductsInterface {
   id: number;
   name: string;
-  price: number;
+  factoryCount: number;
 }
 
 const Filters = ({
@@ -132,6 +132,7 @@ const Filters = ({
                         <FilterSelector
                           selected={item.name === product}
                           key={index}
+                          factoryCount={item.factoryCount}
                           title={item.name}
                           onClick={() => setProduct(item.name)}
                         />
