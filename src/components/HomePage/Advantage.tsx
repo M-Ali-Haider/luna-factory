@@ -46,7 +46,7 @@ const AnimatedNumber = ({
 
 const Advantages = () => {
   return (
-    <div className="flex max-[1024px]:flex-col bg-white mx-auto px-4 md:px-12 py-12 shadow-lg shadow-black/50 rounded-3xl -translate-y-1/9 max-[1000px]:translate-y-10 mb-6">
+    <div className="relative flex max-[1024px]:flex-col bg-white mx-auto px-4 md:px-12 py-12 shadow-lg shadow-black/50 rounded-3xl -translate-y-1/9 max-[1000px]:translate-y-10 mb-6">
       <div className="w-1/2 max-[1024px]:w-full">
         <h1 className="font-barlow font-medium text-primary text-5xl mb-4 max-[1200px]:text-2xl">
           Our Advantages
