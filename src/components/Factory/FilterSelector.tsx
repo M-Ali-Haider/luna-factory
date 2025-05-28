@@ -4,10 +4,12 @@ const FilterSelector = ({
   selected = false,
   title,
   onClick,
+  factoryCount,
 }: {
   selected?: boolean;
   title?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+  factoryCount?: number;
 }) => {
   return (
     <button
@@ -16,7 +18,7 @@ const FilterSelector = ({
         selected ? "bg-primary" : "bg-gray"
       } px-2 py-1 rounded-lg hover:bg-primary cursor-pointer text-sm`}
     >
-      {title}
+      {title} {factoryCount && `(${factoryCount})`}
     </button>
   );
 };

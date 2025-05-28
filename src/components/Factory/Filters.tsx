@@ -19,7 +19,7 @@ const skeletonCategories = [
 
 export interface FiltersInterface {
   className?: string;
-  categories: [{ id: string; name: string }];
+  categories: [{ id: string; name: string; factoryCount: number }];
   isCategoriesLoading: boolean;
   isCategoriesError: boolean;
   setFilter: React.Dispatch<SetStateAction<string | null>>;
@@ -92,12 +92,13 @@ const Filters = ({
                 title="All"
                 onClick={() => setFilter(null)}
               />
-              {categories.map(({ name, id }, index) => (
+              {categories.map(({ name, id, factoryCount }, index) => (
                 <FilterSelector
                   key={index}
                   selected={id === filter}
                   title={name}
                   onClick={() => setFilter(id)}
+                  factoryCount={factoryCount}
                 />
               ))}
             </div>
