@@ -30,3 +30,8 @@ export const alibaba = localFont({
   ],
   variable: "--font-alibaba",
 });
+
+export const quador = localFont({
+  src: [{ path: "./Quador-UltraBold.woff", weight: "900", style: "normal" }],
+  variable: "--font-quador",
+});

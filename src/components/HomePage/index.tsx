@@ -1,15 +1,14 @@
-import React from "react";
-import Main from "./Main";
+import SlideInView from "../Animators/SlideOnView";
+import MaxWidth from "../Wrapper/MaxWidth";
 import Advantage from "./Advantage";
 import FactoryInformation from "./FactoryInformation";
 import JoinUs from "./joinus";
-import SlideInView from "../Animators/SlideOnView";
-import MaxWidth from "../Wrapper/MaxWidth";
+import Main2 from "./Main2";
 
 const HomePage = () => {
   return (
     <div className="overflow-hidden">
-      <Main />
+      <Main2 />
       <SlideInView from="bottom">
         <MaxWidth className="px-6">
           <Advantage />

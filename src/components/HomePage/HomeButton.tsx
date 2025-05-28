@@ -18,7 +18,7 @@ const HomeButton = ({ className }: { className?: string }) => {
     <button
       onClick={scrollToJoinUs}
       className={cn(
-        "bg-white text-primary font-bold px-4 py-2 text-lg md:text-2xl rounded-full cursor-pointer",
+        "bg-white text-primary font-semibold px-4 py-2 text-lg md:text-2xl rounded-full cursor-pointer",
         className
       )}
     >

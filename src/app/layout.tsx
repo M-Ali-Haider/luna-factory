@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import { Barlow } from "next/font/google";
 import { Toaster } from "sonner";
-import { alibaba, sourceHans } from "./fonts/fonts";
+import { alibaba, quador, sourceHans } from "./fonts/fonts";
 import "./globals.css";
 
 const barlow = Barlow({
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${barlow.variable} ${alibaba.variable}
+        className={`${barlow.variable} ${alibaba.variable} ${quador.variable}
         ${sourceHans.className} antialiased`}
       >
         <SessionProvider>

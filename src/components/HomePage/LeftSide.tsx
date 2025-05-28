@@ -5,9 +5,10 @@ import Image from "next/image";
 
 const LeftSide = () => {
   return (
-    <div className="w-[50%] flex flex-col justify-end max-[1000px]:w-full">
-      <h2 className="font-extrabold text-2xl md:text-4xl text-white mb-4">
-        If you have any good creative ideas feel free to share them here
+    <div className="min-h-screen xl:min-h-auto flex-1 flex flex-col justify-end">
+      <h2 className="font-quador font-extrabold text-3xl text-white mb-4">
+        <div>If you have any good creative ideas</div>
+        <div>feel free to share them here</div>
       </h2>
       <HomeButton className={"w-fit mb-4"} />
       <div className="flex gap-4 mb-4">
@@ -25,7 +26,9 @@ const LeftSide = () => {
         <img src="/tiktok.png" alt="" className="w-14" />
         <img src="/tiktok.png" alt="" className="w-14" /> */}
       </div>
-      <h4 className="text-white font-bold text-lg md:text-2xl">Please Click</h4>
+      <h4 className="text-white font-bold text-lg md:text-xl font-quador">
+        Please Click
+      </h4>
     </div>
   );
 };
